@@ -1,315 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#222222"
-    tools:context=".MainActivity">
+    android:padding="16dp">
 
-    <!-- Шапка -->
+    <!-- Текущая дата -->
+    <TextView
+        android:id="@+id/date_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Дата"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- День недели -->
+    <TextView
+        android:id="@+id/day_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="День недели"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/date_text"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <!-- Заголовки дней недели -->
     <LinearLayout
-        android:id="@+id/header"
+        android:id="@+id/weekdays_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="16dp"
-        android:gravity="center_vertical"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/day_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
-            android:id="@+id/date_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="СЕГОДНЯ"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginEnd="16dp"/>
-
-        <TextView
-            android:id="@+id/day_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="18 мар."
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"/>
-
-        <View
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
-
-        <Button
-            android:id="@+id/add_button"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground"
-            android:drawableStart="@drawable/ic_add"
-            android:drawablePadding="8dp"
-            android:padding="8dp"
-            android:text="+"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"/>
+            android:layout_weight="1"
+            android:text="ПН"
+            android:gravity="center"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="ВТ"
+            android:gravity="center"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="СР"
+            android:gravity="center"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="ЧТ"
+            android:gravity="center"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="ПТ"
+            android:gravity="center"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="СБ"
+            android:gravity="center"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="ВС"
+            android:gravity="center"
+            android:textSize="16sp" />
     </LinearLayout>
 
-    <!-- Календарь -->
-    <HorizontalScrollView
-        android:id="@+id/calendar_scroll"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="none"
-        app:layout_constraintTop_toBottomOf="@id/header"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="8dp">
-
-            <!-- Дни недели -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ВС"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp"
-                android:padding="8dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ПН"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp"
-                android:padding="8dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ВТ"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp"
-                android:padding="8dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="СР"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp"
-                android:padding="8dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ЧТ"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp"
-                android:padding="8dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ПТ"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp"
-                android:padding="8dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="СБ"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp"
-                android:padding="8dp"/>
-
-            <!-- Числа дней -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="16"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp"
-                android:padding="8dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="17"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp"
-                android:padding="8dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="18"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp"
-                android:background="@drawable/circle_background"
-                android:padding="8dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="19"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp"
-                android:padding="8dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="20"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp"
-                android:padding="8dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="21"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp"
-                android:padding="8dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="22"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp"
-                android:padding="8dp"/>
-        </LinearLayout>
-    </HorizontalScrollView>
-
-    <!-- Табы -->
+    <!-- Сетка чисел месяца -->
     <LinearLayout
-        android:id="@+id/tabs"
+        android:id="@+id/calendar_grid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        app:layout_constraintTop_toBottomOf="@id/calendar_scroll"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
-
-        <Button
-            android:id="@+id/all_tab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground"
-            android:text="ВСЕ"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp"
-            android:padding="8dp"/>
-
-        <Button
-            android:id="@+id/morning_tab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground"
-            android:text="УТРОМ"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp"
-            android:padding="8dp"/>
-
-        <Button
-            android:id="@+id/day_tab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground"
-            android:text="ДНЕМ"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp"
-            android:padding="8dp"/>
-
-        <Button
-            android:id="@+id/evening_tab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground"
-            android:text="ВЕЧЕРОМ"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp"
-            android:padding="8dp"
-            android:backgroundTint="#4CAF50"/> <!-- Выделенный таб -->
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/weekdays_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <!-- Здесь будут динамически добавляться строки с числами -->
     </LinearLayout>
 
     <!-- Список привычек -->
     <LinearLayout
-        android:id="@+id/habits_list"
+        android:id="@+id/habit_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp"
-        app:layout_constraintTop_toBottomOf="@id/tabs"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/create_habit_button">
+        android:paddingTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/calendar_grid"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="#4CAF50"
-            android:padding="16dp"
-            android:layout_marginBottom="8dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_sleep"
-                android:tint="#FFFFFF"
-                android:padding="8dp"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Спите не менее 8 часов"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp"
-                android:padding="8dp"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_more"
-                android:tint="#FFFFFF"
-                android:padding="8dp"/>
-        </LinearLayout>
-    </LinearLayout>
-
-    <!-- Кнопка создания новой привычки -->
+    <!-- Кнопка "Добавить привычку" -->
     <Button
-        android:id="@+id/create_habit_button"
+        android:id="@+id/add_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/selectableItemBackground"
-        android:text="СОЗДАЙТЕ НОВУЮ ПРИВЫЧКУ"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        android:padding="16dp"
-        app:layout_constraintTop_toBottomOf="@id/habits_list"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/navigation"/>
-
-    <!-- Нижняя панель навигации -->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#424242"
+        android:text="Добавить привычку"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/habit_list"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/bottom_nav_menu"/>
+        app:layout_constraintVertical_bias="0.55"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- Поле для названия привычки -->
+    <EditText
+        android:id="@+id/habit_title_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Название привычки"
+        android:textSize="18sp"
+        android:padding="8dp"/>
+
+    <!-- Поле для описания привычки -->
+    <EditText
+        android:id="@+id/habit_description_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:hint="Описание привычки"
+        android:textSize="18sp"
+        android:inputType="textMultiLine"
+        android:minHeight="100dp"
+        android:gravity="top"
+        android:padding="8dp"/>
+
+    <!-- Кнопка сохранения -->
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Сохранить"
+        android:layout_marginTop="16dp"
+        android:textSize="18sp"/>
+</LinearLayout>
